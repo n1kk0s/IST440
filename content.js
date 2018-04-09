@@ -15,10 +15,31 @@ style.type = 'text/css';
 style.href = chrome.extension.getURL('overlay.css');
 (document.head||document.documentElement).appendChild(style);
 
+function loadJSON(callback) {
+
+   var xobj = new XMLHttpRequest();
+       xobj.overrideMimeType("application/json");
+       xobj.open('GET', 'sources.json', true); // Replace 'my_data' with the path to your file
+       xobj.onreadystatechange = function () {
+         if (xobj.readyState == 4 && xobj.status == "200") {
+           // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+           callback(xobj.responseText);
+         }
+   };
+   xobj.send(null);
+}
+
+function init() {
+ loadJSON(function(response) {
+  // Parse JSON string into object
+    var actual_JSON = JSON.parse(response);
+ });
+}
 
 var editedPosts = new Array();
 
 // This is where we hardcode the URLS to ban....for now
+// we want to import the sources and tags into these arrays
 var bannedDomains = ["https://www.facebook.com/TheOnion/", "https://www.facebook.com/infowars", "https://www.facebook.com/democraticmom", "prntly.com",
   "https://www.facebook.com/yournewswire", "https://www.facebook.com/clashdaily", "naturalnews.com", "https://www.facebook.com/thebabylonbee"];
 
@@ -26,6 +47,8 @@ var bannedReasons = ["Satire", "Conspiracy", "Incorrect", "Fake",
   "Fake", "Fake/Conspiracy", "Fake Science/Conspiracy", "Satire"];
 
 function cleanNewsFeed(){
+  //put the json importing stuff here
+
     chrome.storage.sync.get("clean_news_feed", function(data){
         if (data["clean_news_feed"]){
 
