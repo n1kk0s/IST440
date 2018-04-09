@@ -11,10 +11,11 @@ html {
 
 body {
     background-color: #f1f1f1; /* OFF WHITE */
-    text-align: left;
+    text-align: justify;
     font-family: "Open Sans Condensed";
     font-size: 20px;
     font-weight: bold;
+    margin: 0 2rem;
 }
 
 h2 {
@@ -34,13 +35,21 @@ h2 {
     height: 30px;
     width: 75%;
     border: none;
+    border-radius: 5px;
     text-decoration: none;
-    background-color: #f44336; /* RED */
+    background-color: #ff6347; /* RED */
     transition: all 0.3s ease 0s;
 }
 
 .button:hover {
     background: #b21409;
+}
+
+#url {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
 }
 
 form {
