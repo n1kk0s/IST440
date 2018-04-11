@@ -16,3 +16,17 @@
      padding-top: 10px;
      font-family: 'Oswald', sans-serif !important;
  }
+
+ .button {
+   padding: 10px 15px;
+   display: block;
+   font-family: 'Oswald';
+   text-align: center;
+   text-decoration: none;
+   width: 30%;
+   border: none;
+   border-radius: 5px;
+   color: white;
+   background-color: tomato;
+   margin: 0 auto;
+ }
