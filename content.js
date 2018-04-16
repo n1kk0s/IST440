@@ -40,7 +40,6 @@ var editedPosts = new Array();
 
 // This is where we hardcode the URLS to ban....for now
 // we want to import the sources and tags into these arrays
-// We'll have to add a code snippet that checks to see if the source title is in the Facebook links
 var bannedDomains = ["https://www.facebook.com/TheOnion/", "https://www.facebook.com/infowars", "https://www.facebook.com/democraticmom", "prntly.com",
   "https://www.facebook.com/yournewswire", "https://www.facebook.com/clashdaily", "naturalnews.com", "https://www.facebook.com/thebabylonbee"];
 
